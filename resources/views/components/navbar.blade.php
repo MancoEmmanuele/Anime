@@ -1,6 +1,6 @@
 <nav class="navbar navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">LOGO</a>
+        <a class="navbar-brand" href="/"> <img src="/image/logo.png" class="logo" alt="logo del sito"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
             aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -17,8 +17,12 @@
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="{{route('mangaGenres')}}">Manga</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('animeGenres')}}">Anime</a>
+                    </li>
+
 
                 </ul>
                 {{-- <form class="d-flex mt-3" role="search">
