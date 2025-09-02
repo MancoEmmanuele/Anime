@@ -34,7 +34,7 @@ class PublicController extends Controller
         return [
             'id'       => $anime['mal_id'],
             'image'    => $anime['images']['jpg']['large_image_url'],
-            'title'    => $anime['title_english'] ?? $anime['title'],
+            'title'    => $anime['title_english'],
             'year'     => $anime['year'],
             'synopsis' => $anime['synopsis'],
         ];
@@ -72,4 +72,14 @@ class PublicController extends Controller
         ]);
     }
 
+    public function showAnime($anime_id){
+       $anime =Http::get('https://api.jikan.moe/v4/anime/'.$anime_id)->json();
+       return view('anime.showAnime',['anime'=>$anime['data']]);
+    }
+
+    public function showManga($manga_id){
+       $manga =Http::get('https://api.jikan.moe/v4/manga/'.$manga_id)->json();
+       return view('manga.showManga',['manga'=>$manga['data']]);
+    }
 }
+

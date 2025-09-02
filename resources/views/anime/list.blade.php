@@ -18,7 +18,7 @@
                         <p class="small fst-italic text-muted">
                             Anno:  {{$anime['year']}}
                         </p>
-                        <a href="" class="btn btn-primary">Vai al dettaglio</a>
+                        <a href="{{route('anime.show',['anime_id'=>$anime['id']])}}" class="btn btn-primary">Vai al dettaglio</a>
                     </div>
                 </div>            
             </div>

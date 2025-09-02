@@ -16,7 +16,8 @@
                             {{$manga['synopsis']}}
                         </p>
                         
-                        <a href="" class="btn btn-primary">Vai al dettaglio</a>
+                        <a href="{{ route('manga.show', ['manga' => $manga['id']]) }}" class="btn btn-primary">Vai al dettaglio</a>
+
                     </div>
                 </div>            
             </div>
