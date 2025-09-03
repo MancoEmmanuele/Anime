@@ -1,38 +1,383 @@
-.background-blur {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('/image/sfondo.jpg');
-  background-size: cover;
-  background-position: center;
-  filter: blur(8px);
-  z-index: -1;
+/* =========================
+   RESET & BASE STYLES
+========================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-
-.content-wrapper {
-  position: relative;
-  z-index: 1;
-  padding: 2rem;
-  color: white;
+body {
+    position: relative;
+    font-family: "Poppins", sans-serif;
+    color: white;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
+/* =========================
+   BACKGROUND TORII (BLUR)
+========================= */
+body::before {
+    content: "";
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("/public/image/sfondo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(1px);
+    z-index: -2;
+    opacity: 1;
+}
 
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 100;
+}
 
-
-
-.logo{
-    height: 50px;
-    width: 50px;
+.navbar .logo {
+    height: 40px;
+    width: 40px;
     border-radius: 50%;
 }
 
-
-.nav {
-  z-index: 1000;
+.navbar .nav-links {
+    display: flex;
+    gap: 1.5rem;
 }
-main{
-    margin: 70px ;
+
+.navbar .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-links a:hover {
+    color: #38b000;
+}
+
+.content-wrapper {
+  padding-top: 80px; /* compensa l'altezza della navbar */
+}
+/* =========================
+   HERO SECTION
+========================= */
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    color: white;
+}
+
+/* Testo in alto a sinistra */
+.hero-text-block {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    max-width: 500px;
+    z-index: 10;
+}
+
+.hero-text-block h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.hero-text-block h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Form iscrizione */
+.subscription-form {
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.subscription-form input {
+    padding: 0.8rem;
+    border-radius: 6px;
+    border: none;
+    width: 60%;
+    max-width: 400px;
+}
+
+.subscription-form button {
+    padding: 0.8rem 1.2rem;
+    border-radius: 6px;
+    border: none;
+    background-color: #0077cc;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.subscription-form button:hover {
+    background-color: #005fa3;
+}
+
+/* =========================
+   BOTTONI IN BASSO A DESTRA
+========================= */
+.genre-buttons {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    z-index: 10;
+}
+
+.genre-buttons button {
+    /* background-color: rgba(255, 255, 255, 0.1); */
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.genre-buttons button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+
+/*FASCIA DIAGONALE */
+.character-banner {
+  position: fixed;
+  top: 50%;
+  left: 70%;
+  width: 75vw;              
+  height: 120vh;              
+  transform: translate(-50%, -50%) rotate(-70deg);
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+
+/* Immagine in primo piano */
+.character-banner img {
+ width: auto;               
+  height: 100%;              
+  object-fit: cover;         
+  transform: rotate(70deg);
+  transform-origin: center center;  
+}
+
+
+
+
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+    .hero-text-block {
+        top: 1rem;
+        left: 1rem;
+        right: 1rem;
+        max-width: 100%;
+    }
+
+    .hero-text-block h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-text-block h2 {
+        font-size: 1.2rem;
+    }
+
+    .subscription-form input {
+        width: 100%;
+    }
+
+    .genre-buttons {
+        bottom: 1rem;
+        right: 1rem;
+        gap: 0.5rem;
+    }
+
+    .character-banner {
+        width: 100%;
+        clip-path: none;
+        transform: none;
+        opacity: 0.3; /* sfondo più leggero su mobile */
+    }
+}
+
+
+/* BOTTONI*/ 
+.voltage-button {
+  position: relative;
+}
+
+.voltage-button button {
+  color: white;
+  background: #0D1127;
+  padding: 1rem 3rem 1rem 3rem;
+  border-radius: 5rem;
+  border: 5px solid #5978F3;
+  font-size: 1.2rem;
+  line-height: 1em;
+  letter-spacing: 0.075em;
+  transition: background 0.3s;
+}
+
+.voltage-button button:hover {
+  cursor: pointer;
+  background: #0F1C53;
+}
+
+.voltage-button button:hover + svg, .voltage-button button:hover + svg + .dots {
+  opacity: 1;
+}
+
+.voltage-button svg {
+  display: block;
+  position: absolute;
+  top: -0.75em;
+  left: -0.25em;
+  width: calc(100% + 0.5em);
+  height: calc(100% + 1.5em);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s;
+  transition-delay: 0.1s;
+}
+
+.voltage-button svg path {
+  stroke-dasharray: 100;
+  filter: url("#glow");
+}
+
+.voltage-button svg path.line-1 {
+  stroke: #f6de8d;
+  stroke-dashoffset: 0;
+  animation: spark-1 3s linear infinite;
+}
+
+.voltage-button svg path.line-2 {
+  stroke: #6bfeff;
+  stroke-dashoffset: 500;
+  animation: spark-2 3s linear infinite;
+}
+
+.voltage-button .dots {
+  opacity: 0;
+  transition: opacity 0.3s;
+  transition-delay: 0.4s;
+}
+
+.voltage-button .dots .dot {
+  width: 1rem;
+  height: 1rem;
+  background: white;
+  border-radius: 100%;
+  position: absolute;
+  opacity: 0;
+}
+
+.voltage-button .dots .dot-1 {
+  top: 0;
+  left: 20%;
+  animation: fly-up 3s linear infinite;
+}
+
+.voltage-button .dots .dot-2 {
+  top: 0;
+  left: 55%;
+  animation: fly-up 3s linear infinite;
+  animation-delay: 0.5s;
+}
+
+.voltage-button .dots .dot-3 {
+  top: 0;
+  left: 80%;
+  animation: fly-up 3s linear infinite;
+  animation-delay: 1s;
+}
+
+.voltage-button .dots .dot-4 {
+  bottom: 0;
+  left: 30%;
+  animation: fly-down 3s linear infinite;
+  animation-delay: 2.5s;
+}
+
+.voltage-button .dots .dot-5 {
+  bottom: 0;
+  left: 65%;
+  animation: fly-down 3s linear infinite;
+  animation-delay: 1.5s;
+}
+
+@keyframes spark-1 {
+  to {
+    stroke-dashoffset: -1000;
+  }
+}
+
+@keyframes spark-2 {
+  to {
+    stroke-dashoffset: -500;
+  }
+}
+
+@keyframes fly-up {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.2);
+  }
+
+  5% {
+    opacity: 1;
+    transform: translateY(-1.5rem) scale(0.4);
+  }
+
+  10%, 100% {
+    opacity: 0;
+    transform: translateY(-3rem) scale(0.2);
+  }
+}
+
+@keyframes fly-down {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.2);
+  }
+
+  5% {
+    opacity: 1;
+    transform: translateY(1.5rem) scale(0.4);
+  }
+
+  10%, 100% {
+    opacity: 0;
+    transform: translateY(3rem) scale(0.2);
+  }
 }

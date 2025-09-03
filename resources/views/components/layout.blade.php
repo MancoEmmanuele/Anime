@@ -8,11 +8,14 @@
     @vite(['resources/css/app.css'])
     <title>THE GATES</title>
 </head>
-<body class="bg-cover bg-center text-white" style="background-image: url('/image/sfondo.jpg'); min-height: 100vh;">
+<body>
+  <div class="content-wrapper">
     <x-navbar />
-    <main class="container py-2">
-        {{ $slot }}
+    <main class="hero-section">
+      {{ $slot }}
     </main>
-    @vite(['resources/js/app.js'])
+  </div>
+  @vite(['resources/js/app.js'])
 </body>
+
 </html>
