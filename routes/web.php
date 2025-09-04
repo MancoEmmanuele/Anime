@@ -16,4 +16,10 @@ Route::controller(PublicController::class)->group(function () {
     //rotta per verificare il dettaglio delle singole card
     Route::get('/anime/detail/{anime_id}', 'showAnime')->name('anime.show');
     Route::get('/manga/detail/{manga}', 'showManga')->name('manga.show');
+
+    //ricerca
+   Route::get('/anime/search', [PublicController::class, 'searchAnimeScout'])
+    ->name('anime.search');
+
+
 });

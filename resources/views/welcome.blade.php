@@ -6,10 +6,10 @@
             <h1>Welcome to the gates</h1>
             <h2>Get the latest news on your favourite mangas, anime and manhwa around the world!</h2>
 
-            <form class="subscription-form">
-                <input type="email" placeholder="Enter your email" />
+            <form class="subscription-form" action="{{ route('anime.search') }}" method="GET">
+                <input type="input" name="q" placeholder="search..." />
                 <div class="voltage-button">
-                    <button type="submit">Subscribe</button>
+                    <button type="submit">Search</button>
 
                     <svg viewBox="0 0 180 60" xmlns="http://www.w3.org/2000/svg">
                         <path class="line-1" d="M10,30 L170,30" stroke-width="2" fill="none" />
